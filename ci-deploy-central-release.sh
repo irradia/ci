@@ -39,7 +39,7 @@ info "Executing tagged release deployment"
   -Psigning.gnupg.executable=gpg \
   -Psigning.gnupg.useLegacyGpg=false \
   -Psigning.gnupg.keyName="${MAVEN_CENTRAL_SIGNING_KEY_ID}" \
-  -Porg.librarysimplified.directory.publish="${DEPLOY_DIRECTORY}" \
+  -Pone.irradia.directory.publish="${DEPLOY_DIRECTORY}" \
   -Dorg.gradle.internal.publish.checksums.insecure=true \
   publish || fatal "Could not publish"
 
@@ -60,7 +60,7 @@ info "Creating a staging repository on Maven Central"
 (cat <<EOF
 create
 --description
-Simplified ${TIMESTAMP}
+Irradia ${TIMESTAMP}
 --stagingProfileId
 ${MAVEN_CENTRAL_STAGING_PROFILE_ID}
 --user
