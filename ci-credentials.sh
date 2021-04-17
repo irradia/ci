@@ -44,10 +44,6 @@ if [ -z "${IRRADIA_GITHUB_ACCESS_TOKEN}" ]
 then
   fatal "IRRADIA_GITHUB_ACCESS_TOKEN is not defined"
 fi
-if [ -z "${IRRADIA_SIGNING_KEY}" ]
-then
-  fatal "IRRADIA_SIGNING_KEY is not defined"
-fi
 
 #------------------------------------------------------------------------
 # Clone credentials repos
