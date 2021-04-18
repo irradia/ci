@@ -67,10 +67,13 @@ ${MAVEN_CENTRAL_STAGING_PROFILE_ID}
 ${MAVEN_CENTRAL_USERNAME}
 --password
 ${MAVEN_CENTRAL_PASSWORD}
+--outputFile
+repository.txt
 EOF
 ) > args.txt || fatal "Could not write argument file"
 
-MAVEN_CENTRAL_STAGING_REPOSITORY_ID=$(java -jar brooklime.jar @args.txt) || fatal "Could not create staging repository"
+java -jar brooklime.jar @args.txt || fatal "Could not create staging repository"
+MAVEN_CENTRAL_STAGING_REPOSITORY_ID=$(cat repository.txt) || fatal "Could not read staging repository ID"
 
 #------------------------------------------------------------------------
 # Upload content to the staging repository on Maven Central.
